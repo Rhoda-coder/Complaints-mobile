@@ -15,6 +15,7 @@ import ComplaintCard from "../../components/ComplaintCard";
 import type { Complaint } from "../../types/apiTypes";
 import { useAuth } from "../../context/AuthContext";
 import { complaintAPI } from "../../services/api";
+import Header from "@/components/Header";
 
 const UserDashboard = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -88,7 +89,7 @@ const UserDashboard = () => {
       <View style={styles.summaryContainer}>
         <View style={styles.summaryBox}>
           <View style={styles.summaryHeader}>
-            <Ionicons name="time-outline" size={20} color="#737373" />
+            <Ionicons name="time-outline" size={20} color="#0B5137" />
             <Text style={styles.summaryText}>Unresolved</Text>
           </View>
           <Text style={styles.summaryNumber}>
@@ -101,7 +102,7 @@ const UserDashboard = () => {
             <Ionicons
               name="checkmark-circle-outline"
               size={20}
-              color="#737373"
+              color="#0B5137"
             />
             <Text style={styles.summaryText}>Resolved</Text>
           </View>
@@ -178,6 +179,7 @@ const UserDashboard = () => {
         </View>
       </Modal>
     </View>
+    
   );
 };
 
@@ -185,7 +187,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    paddingTop: 48,
+    paddingTop: 20,
     paddingHorizontal: 20,
   },
   title: {
@@ -199,7 +201,7 @@ const styles = StyleSheet.create({
   },
   summaryBox: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#F2F7EE",
     borderRadius: 20,
     padding: 16,
     shadowColor: "#000",

@@ -10,6 +10,7 @@ import {
 import { complaintAPI } from "../../services/api"; // adjust path
 import type { Complaint } from "../../types/apiTypes";
 import { Ionicons } from "@expo/vector-icons";
+import Header from "@/components/Header";
 
 const GeneralDashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -113,6 +114,7 @@ const GeneralDashboard = () => {
         />
       )}
     </View>
+    
   );
 };
 

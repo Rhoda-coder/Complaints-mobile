@@ -13,6 +13,7 @@ import * as Yup from "yup";
 import { authAPI, authSession } from "../services/api";
 import { useRouter } from "expo-router";
 import { Alert } from "react-native";
+import AuthTopBar from "@/components/AuthTopBar";
 
 // Validation schema using Yup
 const signInFormSchema = Yup.object().shape({
@@ -68,13 +69,7 @@ export default function SignInScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.logoContainer}>
-        <Image
-          source={require("../assets/logo.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
+      <AuthTopBar/>
 
       <Text style={styles.heading}>Create your{"\n"}Account</Text>
       <Text style={styles.subheading}>Enter your staff ID to sign up</Text>
@@ -114,25 +109,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     alignItems: "flex-start", 
     // justifyContent: "center",
-    paddingHorizontal: 40, 
+    paddingHorizontal: 24, 
     paddingTop: 100,
     paddingBottom: 40,
   },
-  logoContainer: {
-    marginBottom: 32,
-    alignItems: "flex-start", 
-  },
-  logo: {
-    width: 160,
-    height: 60,
-    resizeMode: "contain",
-  },
+
   heading: {
     fontSize: 26,
     fontWeight: "700",
     color: "#111827",
     marginBottom: 10,
-    marginTop: 40,
+    marginTop: 30,
     lineHeight: 32,
     textAlign: "left",
   },

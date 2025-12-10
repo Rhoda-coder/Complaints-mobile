@@ -102,6 +102,7 @@ import { MaterialIcons, Feather } from "@expo/vector-icons";
 import { authSession } from "../../services/api";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigation } from "@react-navigation/native";
+import Header from "@/components/Header";
 
 const ProfilePage = () => {
   // const navigation = useNavigation();
@@ -121,16 +122,11 @@ const ProfilePage = () => {
   //   : 0;
 
   return (
-    <View style={styles.mainContent}>
-      {/* Logo */}
-      <View style={styles.logoContainer}>
-        <Image
-          source={require("../../assets/logo.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
 
+    // <View style={{ flex: 1 }}>
+    //   <Header/>
+    
+    <View style={styles.mainContent}>
       {/* Heading */}
       <Text style={styles.heading}>Profile</Text>
 

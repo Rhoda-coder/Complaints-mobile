@@ -14,6 +14,7 @@ import { router } from "expo-router";
 import { useAuth } from "../context/AuthContext";
 import { authAPI, authSession } from "../services/api";
 import { loginInFormSchema } from "../Utils/FormSchemas";
+import AuthTopBar from "@/components/AuthTopBar";
 
 const LoginPage = () => {
   const { handleRefreshToken } = useAuth();
@@ -74,19 +75,12 @@ const LoginPage = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Logo */}
-      <View style={styles.logoContainer}>
-        <Image
-          source={require("../assets/logo.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
+      <AuthTopBar/>
 
       <View style={styles.formContainer}>
-        <Text style={styles.heading}>Sign in to Your {"\n"}Account</Text>
+        <Text style={styles.heading}>Welcome Back</Text>
         <Text style={styles.subheading}>
-          Enter your staff ID and password to log in
+          Enter your credentials to access your account
         </Text>
 
         {/* Staff ID */}
@@ -129,9 +123,7 @@ const LoginPage = () => {
             Forgot your password?
           </Text>
 
-          <Text style={styles.link} onPress={() => router.push("/signin")}>
-            Create an account
-          </Text>
+          
         </View>
 
         {/* Submit */}
@@ -146,6 +138,12 @@ const LoginPage = () => {
         </TouchableOpacity>
 
         {error && <Text style={styles.errorText}>{error}</Text>}
+        <Text style={{ textAlign: "center", marginBottom: 20, color: "#374151" }}>
+          Don't have an account?{" "}
+        <Text style={styles.link} onPress={() => router.push("/signin")}>
+            Sign up
+          </Text>
+          </Text>
       </View>
     </ScrollView>
   );
@@ -163,16 +161,16 @@ const styles = StyleSheet.create({
     // justifyContent: "center", // vertical centering on small screens
     alignItems: "center",
   },
-  logoContainer: {
-    width: 160,
-    marginBottom: 32,
-    alignSelf: "flex-start",
-  },
-  logo: {
-    width: 160,
-    height: 60,
-    resizeMode: "contain",
-  },
+  // logoContainer: {
+  //   width: 160,
+  //   marginBottom: 32,
+  //   alignSelf: "flex-start",
+  // },
+  // logo: {
+  //   width: 160,
+  //   height: 60,
+  //   resizeMode: "contain",
+  // },
   formContainer: {
     width: "100%",
     maxWidth: 360, // ensures form doesn't stretch too much on taller screens
@@ -215,7 +213,7 @@ const styles = StyleSheet.create({
   },
   linksContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     marginBottom: 28,
   },
   link: {

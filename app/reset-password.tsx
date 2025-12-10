@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 import { authAPI, authSession } from "../services/api";
+import AuthTopBar from "@/components/AuthTopBar";
 
 export default function ResetPasswordScreen() {
   const [otp, setOtp] = useState<number | undefined>();
@@ -88,11 +89,12 @@ export default function ResetPasswordScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Logo */}
-      <Image
+      {/* <Image
         source={require("../assets/logo.png")}
         resizeMode="contain"
         style={styles.logo}
-      />
+      /> */}
+      <AuthTopBar/> 
 
       {/* Title */}
       <Text style={styles.title}>Reset Password</Text>
@@ -180,12 +182,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 
-  logo: {
-    width: 160,
-    height: 60,
-    alignSelf: "flex-start",
-    marginBottom: 30,
-  },
+  // logo: {
+  //   width: 160,
+  //   height: 60,
+  //   alignSelf: "flex-start",
+  //   marginBottom: 30,
+  // },
 
   title: {
     fontSize: 28,
