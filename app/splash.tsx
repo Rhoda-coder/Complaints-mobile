@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, Image, StyleSheet, Animated } from "react-native";
 import { useRouter } from "expo-router";
+import AuthTopBar from "@/components/AuthTopBar";
 
 export default function SplashScreen() {
   const router = useRouter();
@@ -27,15 +28,7 @@ export default function SplashScreen() {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.content, { opacity: fadeAnim }]}>
-        <Image
-          source={require("../assets/logo.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-
-        <Text style={styles.title}>COMPLAINT & FEEDBACK</Text>
-      </Animated.View>
+      <AuthTopBar />
     </View>
   );
 }
@@ -47,20 +40,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 16,
-  },
-  content: {
-    alignItems: "center",
-    gap: 20, // note: works only on RN 0.70+; otherwise use margin
-  },
-  logo: {
-    width: 240,
-    height: 192,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#0d5c3d",
-    textAlign: "center",
-    letterSpacing: 1,
   },
 });

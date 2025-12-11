@@ -12,7 +12,7 @@ export default function AuthTopBar() {
         resizeMode="contain"
       />
 
-      <Text style={styles.title}>Complaint & Feedback</Text>
+      <Text style={styles.title}>Complaints & Feedback</Text>
     </View>
   );
 }
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     paddingTop: 20, 
     paddingBottom: 30,
     alignItems: "center",
-    
+
   },
 
   logo: {

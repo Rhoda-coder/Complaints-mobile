@@ -88,13 +88,9 @@ export default function ResetPasswordScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Logo */}
-      {/* <Image
-        source={require("../assets/logo.png")}
-        resizeMode="contain"
-        style={styles.logo}
-      /> */}
+      <View style={styles.mainContainer}>
       <AuthTopBar/> 
+      </View>
 
       {/* Title */}
       <Text style={styles.title}>Reset Password</Text>
@@ -177,21 +173,19 @@ export default function ResetPasswordScreen() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 100,
-    paddingHorizontal: 25,
+    paddingHorizontal: 24,
+    paddingBottom: 40,
     backgroundColor: "#fff",
     flexGrow: 1,
+    
   },
 
-  // logo: {
-  //   width: 160,
-  //   height: 60,
-  //   alignSelf: "flex-start",
-  //   marginBottom: 30,
-  // },
-
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
+mainContainer:{
+  alignItems: "center",
+},
+title: {
+  fontSize: 28,
+  fontWeight: "bold",
   },
 
   subtitle: {

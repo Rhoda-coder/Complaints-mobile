@@ -54,7 +54,12 @@ export type AuthContextValue = {
 };
 
 // ---------------- Complaint Types ----------------
-export type ComplaintStatus = "Unread" | "Read" | "In progress" | "Completed";
+export type ComplaintStatus =
+  | "Unread"
+  | "Read"
+  | "In Progress"
+  | "Completed"
+  | "Pending Approval";
 
 export type ComplaintCategory = "admin" | "facility management";
 
@@ -103,6 +108,8 @@ export interface ComplaintRequest {
   description: string;
   location?: string;
   is_anonymous?: boolean;
+  is_public?: boolean;
+  attachment?: string;
 }
 
 export interface ComplaintResponse {
@@ -261,4 +268,5 @@ export type NotificationType = {
   id: string;
   submittedDate: string;
 };
+
 

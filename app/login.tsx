@@ -161,16 +161,6 @@ const styles = StyleSheet.create({
     // justifyContent: "center", // vertical centering on small screens
     alignItems: "center",
   },
-  // logoContainer: {
-  //   width: 160,
-  //   marginBottom: 32,
-  //   alignSelf: "flex-start",
-  // },
-  // logo: {
-  //   width: 160,
-  //   height: 60,
-  //   resizeMode: "contain",
-  // },
   formContainer: {
     width: "100%",
     maxWidth: 360, // ensures form doesn't stretch too much on taller screens

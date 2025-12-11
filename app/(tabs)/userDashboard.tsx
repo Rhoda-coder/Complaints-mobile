@@ -15,7 +15,7 @@ import ComplaintCard from "../../components/ComplaintCard";
 import type { Complaint } from "../../types/apiTypes";
 import { useAuth } from "../../context/AuthContext";
 import { complaintAPI } from "../../services/api";
-import Header from "@/components/Header";
+
 
 const UserDashboard = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -37,19 +37,17 @@ const UserDashboard = () => {
   );
   const [isDetailDialogOpen, setIsDetailDialogOpen] = useState(false);
   
-
-    // filter complaints
-     const filteredComplaints = useMemo(() => {
-      if (!complaints) return;
-      let tempComplaints = [...complaints];
-      if (searchQuery.trim() !== "") {
-        tempComplaints = tempComplaints.filter((complaint) =>
-          complaint.title.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-      }
-      return tempComplaints;
-    }, [searchQuery, complaints]);
-
+  // filter complaints
+  const filteredComplaints = useMemo(() => {
+    if (!complaints) return;
+    let tempComplaints = [...complaints];
+    if (searchQuery.trim() !== "") {
+      tempComplaints = tempComplaints.filter((complaint) =>
+        complaint.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    return tempComplaints;
+  }, [searchQuery, complaints]);
 
   const handleViewDetails = (complaint: Complaint) => {
     setSelectedComplaint(complaint);
@@ -81,6 +79,7 @@ const UserDashboard = () => {
 
     fetchComplaints();
   }, [isDetailDialogOpen]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
@@ -90,7 +89,7 @@ const UserDashboard = () => {
         <View style={styles.summaryBox}>
           <View style={styles.summaryHeader}>
             <Ionicons name="time-outline" size={20} color="#0B5137" />
-            <Text style={styles.summaryText}>Unresolved</Text>
+            <Text style={styles.summaryText}>Unresolved complaints</Text>
           </View>
           <Text style={styles.summaryNumber}>
             {complaintsSummary.read + complaintsSummary.unread + complaintsSummary.in_progress}
@@ -104,7 +103,7 @@ const UserDashboard = () => {
               size={20}
               color="#0B5137"
             />
-            <Text style={styles.summaryText}>Resolved</Text>
+            <Text style={styles.summaryText}>Resolved complaints</Text>
           </View>
           <Text style={styles.summaryNumber}>{complaintsSummary.completed}</Text>
         </View>
@@ -167,19 +166,19 @@ const UserDashboard = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            <TouchableOpacity
-              onPress={() => setModalVisible(false)}
-              style={styles.modalCloseButton}
-            >
-              <Feather name="x" size={24} color="black" />
-            </TouchableOpacity>
+            {/* Styled green header with New Complaint and X */}
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>New Complaint</Text>
+              <TouchableOpacity onPress={() => setModalVisible(false)}>
+                <Feather name="x" size={30} />
+              </TouchableOpacity>
+            </View>
 
             <ComplaintForm onClose={() => setModalVisible(false)} />
           </View>
         </View>
       </Modal>
     </View>
-    
   );
 };
 
@@ -216,7 +215,7 @@ const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: 14,
-    color: "#737373",
+    color: "#737373", 
   },
   summaryNumber: {
     fontSize: 24,
@@ -280,11 +279,22 @@ const styles = StyleSheet.create({
     height: "85%",
     backgroundColor: "white",
     borderRadius: 24,
-    padding: 20,
+    padding: 0, // padding moved inside modalHeader and form
   },
-  modalCloseButton: {
-    alignSelf: "flex-end",
-    marginBottom: 8,
+  modalHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#F2F7EE",
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+  },
+  modalTitle: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingLeft: "25%",
   },
 });
 

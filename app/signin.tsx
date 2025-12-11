@@ -69,7 +69,9 @@ export default function SignInScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.mainContainer}>
       <AuthTopBar/>
+      </View>
 
       <Text style={styles.heading}>Create your{"\n"}Account</Text>
       <Text style={styles.subheading}>Enter your staff ID to sign up</Text>
@@ -107,11 +109,12 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#FFFFFF",
-    alignItems: "flex-start", 
-    // justifyContent: "center",
     paddingHorizontal: 24, 
     paddingTop: 100,
     paddingBottom: 40,
+  },
+  mainContainer:{
+    alignItems: "center",
   },
 
   heading: {
